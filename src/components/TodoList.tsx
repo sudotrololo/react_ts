@@ -8,14 +8,23 @@ type ITodoList = {
 };
 
 export const TodoList: React.FC<ITodoList> = ({ todos, delTodo, checkTodo }) => {
+
+    const isCeckedClass: string = 'isChecked'
+
     return (
         <ul>
             {todos.map((todo) => {
                 return (
                     <li key={todo.id}>
-                        <span>
+                        <span className={todo.isChecked ? isCeckedClass : ''}>
                             {todo.title}
-                            <input onChange={checkTodo.bind(null, todo.id)} type="checkbox" checked={todo.isChecked} />
+                            <input
+                                onChange={() => {
+                                    checkTodo(todo.id);
+                                }}
+                                type="checkbox"
+                                checked={todo.isChecked}
+                            />
                             <button
                                 onClick={() => {
                                     delTodo(todo.id);

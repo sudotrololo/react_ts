@@ -2,3 +2,8 @@ body {
   background-color: #111;
   color: #fff;
 }
+
+.isChecked{
+  text-decoration: line-through;
+  color: rgb(180, 180, 180);
+}
